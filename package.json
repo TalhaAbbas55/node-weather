@@ -8,10 +8,16 @@
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["node", "express", "fetch", "freelancers"],
+  "keywords": [
+    "node",
+    "express",
+    "fetch",
+    "freelancers"
+  ],
   "author": "Your Name <your.email@example.com>",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "node-fetch": "^3.3.2"
   }
