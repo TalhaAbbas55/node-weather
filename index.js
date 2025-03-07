@@ -1,10 +1,8 @@
 import express from "express";
 import fetch from "node-fetch";
-import dotenv from "dotenv";
-dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 9000;
+const PORT = 9000;
 
 app.use(express.json());
 
@@ -60,7 +58,7 @@ app.get("/retrieve-data", async (req, res) => {
 async function getCoordinates(place) {
   try {
     const response = await fetch(
-      `${process.env.GEO_API_URL}?name=${encodeURIComponent(
+      `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(
         place
       )}&count=1&language=en&format=json`
     );
@@ -83,8 +81,7 @@ async function getCoordinates(place) {
 
 async function getWeatherData(latitude, longitude) {
   try {
-    const url = process.env.WEATHER_API_URL;
-
+    const url = "https://api.open-meteo.com/v1/forecast";
     const params = new URLSearchParams({
       latitude,
       longitude,
